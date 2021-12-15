@@ -20,18 +20,19 @@ app.get("/api/movie", async function (req, res) {
     const collection = database.collection("movies");
 
     // Query for a movie that has the title 'Back to the Future'
-    const query = { genres: "Comedy", poster: { $exists: true } };
-    const cursor = await collection.aggregate([
-      { $match: query },
-      { $sample: { size: 1 } },
-      {
-        $project: {
-          title: 1,
-          fullplot: 1,
-          poster: 1,
-        },
-      },
-    ]);
+    // const query = { genres: "Comedy", poster: { $exists: true } };
+    // const cursor = await collection.aggregate([
+    //   { $match: query },
+    //   { $sample: { size: 1 } },
+    //   {
+    //     $project: {
+    //       title: 1,
+    //       fullplot: 1,
+    //       poster: 1,
+    //     },
+    //   },
+    // ]);
+    const movie = await collection.find({});
 
     const movie = await cursor.next();
 
