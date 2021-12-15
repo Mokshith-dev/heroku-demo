@@ -4,8 +4,7 @@ const app = express();
 
 const { MongoClient } = require("mongodb");
 
-const uri =
-  "mongodb+srv://mokshith:mokshith@cluster0.q6oaj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const uri = process.env;
 
 // use the express-static middleware
 // app.use(express.static("client/build"));
