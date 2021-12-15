@@ -6,6 +6,9 @@
     "engines": {
         "node": "14.x"
     },
+    "optionalDependencies": {
+      "fsevents": "2.1.2"
+    },
     "scripts": {
         "start": "node server.js",
         "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
