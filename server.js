@@ -18,24 +18,10 @@ app.get("/api/movie", async function (req, res) {
 
     const database = client.db("myFirstDatabase");
     const collection = database.collection("movies");
-
-    // Query for a movie that has the title 'Back to the Future'
-    // const query = { genres: "Comedy", poster: { $exists: true } };
-    // const cursor = await collection.aggregate([
-    //   { $match: query },
-    //   { $sample: { size: 1 } },
-    //   {
-    //     $project: {
-    //       title: 1,
-    //       fullplot: 1,
-    //       poster: 1,
-    //     },
-    //   },
-    // ]);
-    const movie = await collection.find({});
+    const cursor = await collection.find({});
 
     const movie = await cursor.next();
-
+    // console.log(movie);
     return res.json(movie);
   } catch (err) {
     console.log(err);
@@ -46,4 +32,4 @@ app.get("/api/movie", async function (req, res) {
 });
 
 // start the server listening for requests
-app.listen(process.env.PORT || 3000, () => console.log("Server is running..."));
+app.listen(process.env.PORT || 3001, () => console.log("Server is running..."));
