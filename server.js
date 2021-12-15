@@ -4,13 +4,14 @@ const app = express();
 
 const { MongoClient } = require("mongodb");
 
-const uri = process.env;
+const uri = process.env.MONGODB_URI;
 
 // use the express-static middleware
 // app.use(express.static("client/build"));
 
 // define the first route
 app.get("/api/movie", async function (req, res) {
+  console.log(uri);
   const client = new MongoClient(uri, { useUnifiedTopology: true });
 
   try {
@@ -21,7 +22,7 @@ app.get("/api/movie", async function (req, res) {
     const cursor = await collection.find({});
 
     const movie = await cursor.next();
-    // console.log(movie);
+    //console.log(movie);
     return res.json(movie);
   } catch (err) {
     console.log(err);

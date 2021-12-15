@@ -7,7 +7,7 @@ export default function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        let data = await axios.get("api/movie");
+        let data = await axios.get("/api/movie");
         console.log(data.data);
         setData(data.data);
       } catch (err) {
