@@ -16,7 +16,7 @@ app.get("/api/movie", async function (req, res) {
   try {
     await client.connect();
 
-    const database = client.db("sample_mflix");
+    const database = client.db("myFirstDatabase");
     const collection = database.collection("movies");
 
     // Query for a movie that has the title 'Back to the Future'
