@@ -8,7 +8,7 @@ const uri =
   "mongodb+srv://mokshith:mokshith@cluster0.q6oaj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 // use the express-static middleware
-app.use(express.static("client/build"));
+// app.use(express.static("client/build"));
 
 // define the first route
 app.get("/api/movie", async function (req, res) {
